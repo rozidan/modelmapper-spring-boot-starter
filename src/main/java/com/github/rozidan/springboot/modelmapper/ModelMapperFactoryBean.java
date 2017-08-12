@@ -33,7 +33,7 @@ public class ModelMapperFactoryBean implements FactoryBean<ModelMapper> {
      * The global configuration used for customizing the behaviour of the model mapper.
      */
     @Autowired(required = false)
-    private MapperConfigurer mapperConfigurer;
+    private ConfigurationConfigurer mapperConfigurer;
 
     /**
      * The list of configurers used for customizing the behaviour of the model mapper.
