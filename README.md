@@ -51,13 +51,11 @@ public class MapperConfigurer extends TypeMapConfigurer<User, UserDto> {
 ```
 
 ###Testing
-It can be easy to scan mapping components with the `WithModelMapper` annotation 
+Scan for mapping components with the `WithModelMapper` annotation 
 ```java
 @RunWith(SpringRunner.class)
 @WithModelMapper(basePackage = "com.company.program.mapping")
 public class MapperTest {
-    @Autowired
-    private ModelMapper mapper;
     
     @Test
     public void someTest() {
