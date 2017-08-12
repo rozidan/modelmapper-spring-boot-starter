@@ -37,7 +37,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * @author Idan Rozenfeld
  */
 @RunWith(SpringRunner.class)
-public class TypeMapConfigurerTest {
+public class TypeMapNameTest {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -50,10 +50,13 @@ public class TypeMapConfigurerTest {
     @Test
     public void shouldMapUserEntity() {
         final User user = new User("John Doe", 23);
-        final UserDto userDto = modelMapper.map(user, UserDto.class);
-        assertThat(userDto.getFirstName(), equalTo("John"));
-        assertThat(userDto.getLastName(), equalTo("Doe"));
-        assertThat(userDto.getAge(), equalTo(user.getAge()));
+
+        final UserDto userDto1 = modelMapper.map(user, UserDto.class);
+        assertThat(userDto1.getFirstName(), is(nullValue()));
+
+        final UserDto userDto2 = modelMapper.map(user, UserDto.class, "userMappingV1");
+        assertThat(userDto2.getFirstName(), equalTo("John Doe"));
+        assertThat(userDto2.getAge(), equalTo(user.getAge()));
     }
 
     @Configuration
@@ -65,14 +68,14 @@ public class TypeMapConfigurerTest {
             return new TypeMapConfigurer<User, UserDto>() {
 
                 @Override
+                public String getTypeMapName() {
+                    return "userMappingV1";
+                }
+
+                @Override
                 public void configure(TypeMap<User, UserDto> typeMap) {
                     typeMap.addMapping(User::getAge, UserDto::setAge);
-                    typeMap.setPreConverter(context -> {
-                        String[] name = context.getSource().getName().split(" ");
-                        context.getDestination().setFirstName(name[0]);
-                        context.getDestination().setLastName(name[1]);
-                        return context.getDestination();
-                    });
+                    typeMap.addMapping(User::getName, UserDto::setFirstName);
                 }
             };
         }

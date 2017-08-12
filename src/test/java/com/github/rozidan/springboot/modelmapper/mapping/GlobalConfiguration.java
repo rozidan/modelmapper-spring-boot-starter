@@ -15,12 +15,12 @@
  */
 package com.github.rozidan.springboot.modelmapper.mapping;
 
-import com.github.rozidan.springboot.modelmapper.MapperConfigurer;
+import com.github.rozidan.springboot.modelmapper.ConfigurationConfigurer;
 import org.modelmapper.config.Configuration;
 import org.springframework.boot.test.context.TestComponent;
 
 @TestComponent
-public class GlobalConfiguration extends MapperConfigurer {
+public class GlobalConfiguration extends ConfigurationConfigurer {
     @Override
     public void configure(Configuration configuration) {
         configuration.setSkipNullEnabled(true);

@@ -15,13 +15,13 @@
  */
 package com.github.rozidan.springboot.modelmapper;
 
-
 import com.github.rozidan.springboot.modelmapper.dtos.UserDto;
 import com.github.rozidan.springboot.modelmapper.entities.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
+import org.modelmapper.internal.InheritingConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -32,12 +32,10 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * Tests the {@link TypeMapConfigurer} class.
- *
  * @author Idan Rozenfeld
  */
 @RunWith(SpringRunner.class)
-public class TypeMapConfigurerTest {
+public class TypeMapConfigurationTest {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -48,9 +46,10 @@ public class TypeMapConfigurerTest {
     }
 
     @Test
-    public void shouldMapUserEntity() {
-        final User user = new User("John Doe", 23);
-        final UserDto userDto = modelMapper.map(user, UserDto.class);
+    public void shouldMapUserEntityWithoutNulls() {
+        final User user = new User(null, 23);
+        final UserDto userDto = new UserDto("John", "Doe", 22, "??");
+        modelMapper.map(user, userDto);
         assertThat(userDto.getFirstName(), equalTo("John"));
         assertThat(userDto.getLastName(), equalTo("Doe"));
         assertThat(userDto.getAge(), equalTo(user.getAge()));
@@ -65,14 +64,15 @@ public class TypeMapConfigurerTest {
             return new TypeMapConfigurer<User, UserDto>() {
 
                 @Override
+                public org.modelmapper.config.Configuration getConfiguration() {
+                    return new InheritingConfiguration().setSkipNullEnabled(true);
+                }
+
+                @Override
                 public void configure(TypeMap<User, UserDto> typeMap) {
                     typeMap.addMapping(User::getAge, UserDto::setAge);
-                    typeMap.setPreConverter(context -> {
-                        String[] name = context.getSource().getName().split(" ");
-                        context.getDestination().setFirstName(name[0]);
-                        context.getDestination().setLastName(name[1]);
-                        return context.getDestination();
-                    });
+                    typeMap.addMapping(User::getName, UserDto::setFirstName);
+                    typeMap.addMapping(User::getName, UserDto::setLastName);
                 }
             };
         }

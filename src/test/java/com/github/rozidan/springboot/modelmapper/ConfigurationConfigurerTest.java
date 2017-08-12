@@ -15,12 +15,6 @@
  */
 package com.github.rozidan.springboot.modelmapper;
 
-/**
- * Tests the {@link MapperConfigurer} class.
- *
- * @author Idan Rozenfeld
- */
-
 import com.github.rozidan.springboot.modelmapper.dtos.UserDto;
 import com.github.rozidan.springboot.modelmapper.entities.User;
 import org.junit.Test;
@@ -40,7 +34,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * @author Idan Rozenfeld
  */
 @RunWith(SpringRunner.class)
-public class MapperConfigurerTest {
+public class ConfigurationConfigurerTest {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -55,8 +49,9 @@ public class MapperConfigurerTest {
         final User user = new User(null, 23);
         final UserDto userDto = new UserDto("John", "Doe", 24, "??");
         modelMapper.map(user, userDto);
-        assertThat("John", equalTo(userDto.getFirstName()));
-        assertThat("Doe", equalTo(userDto.getLastName()));
+        assertThat(userDto.getFirstName(), equalTo("John"));
+        assertThat(userDto.getLastName(), equalTo("Doe"));
+        assertThat(userDto.getAge(), equalTo(user.getAge()));
     }
 
     @Configuration
@@ -77,8 +72,8 @@ public class MapperConfigurerTest {
         }
 
         @Bean
-        public MapperConfigurer mapperConfiguration() {
-            return new MapperConfigurer() {
+        public ConfigurationConfigurer mapperConfiguration() {
+            return new ConfigurationConfigurer() {
                 @Override
                 public void configure(org.modelmapper.config.Configuration configuration) {
                     configuration.setSkipNullEnabled(true);

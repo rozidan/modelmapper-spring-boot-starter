@@ -19,7 +19,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
 
 
-public abstract class MapperConfigurer {
+public abstract class ConfigurationConfigurer {
 
     void configureImpl(ModelMapper mapper) {
         configure(mapper.getConfiguration());
