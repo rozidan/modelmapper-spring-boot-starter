@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConditionalOnClass(ModelMapper.class)
-public class ModelmapperAutoConfiguration {
+public class ModelMapperAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(ModelMapperFactoryBean.class)

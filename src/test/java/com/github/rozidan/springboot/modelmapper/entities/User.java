@@ -13,28 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rozidan.springboot.modelmapper;
+package com.github.rozidan.springboot.modelmapper.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * User DTO.
+ * User domain object.
  *
  * @author Idan Rozenfeld
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+@AllArgsConstructor
+public class User {
 
-    private String firstName;
-
-    private String lastName;
-
-    private int age;
-
-    private String middleName;
-
+    private String name;
+    private Integer age;
 }

@@ -21,6 +21,8 @@ package com.github.rozidan.springboot.modelmapper;
  * @author Idan Rozenfeld
  */
 
+import com.github.rozidan.springboot.modelmapper.dtos.UserDto;
+import com.github.rozidan.springboot.modelmapper.entities.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;

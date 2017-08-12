@@ -54,7 +54,6 @@ public class ModelMapperAutoConfigurationTest {
 
     @Test
     public void shouldInvokeConfigurer() {
-
         for (TypeMapConfigurer configurer : configurers) {
             verify(configurer).configureImpl(any(ModelMapper.class));
         }
