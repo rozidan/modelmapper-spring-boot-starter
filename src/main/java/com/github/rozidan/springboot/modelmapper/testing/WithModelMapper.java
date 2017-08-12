@@ -15,7 +15,7 @@
  */
 package com.github.rozidan.springboot.modelmapper.testing;
 
-import com.github.rozidan.springboot.modelmapper.MapperConfigurer;
+import com.github.rozidan.springboot.modelmapper.ConfigurationConfigurer;
 import com.github.rozidan.springboot.modelmapper.ModelMapperAutoConfiguration;
 import com.github.rozidan.springboot.modelmapper.TypeMapConfigurer;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -40,7 +40,7 @@ import java.lang.annotation.*;
 @ImportAutoConfiguration(ModelMapperAutoConfiguration.class)
 @ComponentScan(useDefaultFilters = false,
         includeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE,
-                classes = {TypeMapConfigurer.class, MapperConfigurer.class}))
+                classes = {TypeMapConfigurer.class, ConfigurationConfigurer.class}))
 public @interface WithModelMapper {
 
     /**
