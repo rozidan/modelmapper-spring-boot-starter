@@ -53,7 +53,7 @@ public class MapperConfigurer extends TypeMapConfigurer<User, UserDto> {
 }
 ```
 
-###Testing
+### Testing
 Scan for mapping components with the `WithModelMapper` annotation 
 ```java
 @RunWith(SpringRunner.class)
