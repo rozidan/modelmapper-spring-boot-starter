@@ -1,6 +1,8 @@
 # Spring Boot ModelMapper Starter
 > A Spring Boot starter that let you use [ModelMapper](http://modelmapper.org) within your Spring Boot application.
 
+> Base on [jmnarloch modelmapper project](https://github.com/jmnarloch/modelmapper-spring-boot-starter)
+
 [![Build Status](https://travis-ci.org/rozidan/modelmapper-spring-boot-starter.svg?branch=master)](https://travis-ci.org/rozidan/modelmapper-spring-boot-starter)
 [![Coverage Status](https://coveralls.io/repos/github/rozidan/modelmapper-spring-boot-starter/badge.svg?branch=master)](https://coveralls.io/github/rozidan/modelmapper-spring-boot-starter?branch=master)
 
