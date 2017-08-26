@@ -7,7 +7,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/rozidan/modelmapper-spring-boot-starter/badge.svg?branch=master)](https://coveralls.io/github/rozidan/modelmapper-spring-boot-starter?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.rozidan/modelmapper-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.rozidan/modelmapper-spring-boot-starter/)
 
-
 ## Features
 Register the ModelMapper to your Spring Boot application and allows to configure it and register object mappings.
 
