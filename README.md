@@ -16,12 +16,12 @@ In order to add ModelMpaeer to your project simply add this dependency to your c
 <dependency>
     <groupId>com.github.rozidan</groupId>
     <artifactId>modelmapper-spring-boot-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ```groovy
-compile 'com.github.rozidan:modelmapper-spring-boot-starter:1.0.0-SNAPSHOT'
+compile 'com.github.rozidan:modelmapper-spring-boot-starter:1.0.0'
 ```
 
 ### Change ModelMapper global configuration
