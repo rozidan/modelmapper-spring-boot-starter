@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rozidan.springboot.modelmapper.inner;
+package com.github.rozidan.springboot.modelmapper;
 
 import com.github.rozidan.springboot.modelmapper.dtos.UserDto;
 import com.github.rozidan.springboot.modelmapper.entities.User;
 import com.github.rozidan.springboot.modelmapper.mapping.UserDtoMapping;
-import com.github.rozidan.springboot.modelmapper.testing.WithModelMapper;
+import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;

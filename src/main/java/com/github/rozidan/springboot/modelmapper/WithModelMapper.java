@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rozidan.springboot.modelmapper.testing;
+package com.github.rozidan.springboot.modelmapper;
 
 import com.github.rozidan.springboot.modelmapper.ConfigurationConfigurer;
+import com.github.rozidan.springboot.modelmapper.ConverterConfigurer;
 import com.github.rozidan.springboot.modelmapper.ModelMapperAutoConfiguration;
 import com.github.rozidan.springboot.modelmapper.TypeMapConfigurer;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -40,7 +41,7 @@ import java.lang.annotation.*;
 @ImportAutoConfiguration(ModelMapperAutoConfiguration.class)
 @ComponentScan(useDefaultFilters = false,
         includeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE,
-                classes = {TypeMapConfigurer.class, ConfigurationConfigurer.class}))
+                classes = {TypeMapConfigurer.class, ConverterConfigurer.class, ConfigurationConfigurer.class}))
 public @interface WithModelMapper {
 
     /**

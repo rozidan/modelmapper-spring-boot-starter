@@ -42,6 +42,12 @@ public class ModelMapperFactoryBean implements FactoryBean<ModelMapper> {
     private List<TypeMapConfigurer> configurers;
 
     /**
+     * The list of converters used for customizing the behaviour of the model mapper.
+     */
+    @Autowired(required = false)
+    private List<ConverterConfigurer> converters;
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -75,6 +81,10 @@ public class ModelMapperFactoryBean implements FactoryBean<ModelMapper> {
     private void configure(ModelMapper modelMapper) {
         if (mapperConfigurer != null) {
             mapperConfigurer.configureImpl(modelMapper);
+        }
+
+        if (converters != null) {
+            converters.forEach(typeMapConfigurer -> typeMapConfigurer.configureImpl(modelMapper));
         }
 
         if (configurers != null) {
