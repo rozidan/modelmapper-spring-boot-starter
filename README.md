@@ -33,6 +33,7 @@ public class GlobalConfiguration extends MapperConfigurer {
     @Override
     public void configure(Configuration configuration) {
         configuration.setSkipNullEnabled(true);
+        configuration.setMatchingStrategy(MatchingStrategies.STRICT);
     }
 }
 ```
@@ -57,16 +58,37 @@ public class MapperConfigurer extends TypeMapConfigurer<User, UserDto> {
 }
 ```
 
+### Custom converter
+In order to register ModelMapper Converter, simply register within Spring application context instance of `ConverterConfigurer`:
+```java
+@Component
+public class SomeEnumTypeConverter extends ConverterConfigurer<ProductCategory, ProductCategoryDto> {
+        @Override
+        public Converter<ProductCategory, ProductCategoryDto> converter() {
+            return new AbstractConverter<ProductCategory, ProductCategoryDto>() {
+                @Override
+                protected ProductCategoryDto convert(ProductCategory source) {
+                    ...
+                }
+            };
+        }
+    }
+```
+
 ### Testing
 Scan for mapping components with the `WithModelMapper` annotation 
 ```java
 @RunWith(SpringRunner.class)
-@WithModelMapper(basePackage = "com.company.program.mapping")
 public class MapperTest {
     
     @Test
     public void someTest() {
         
+    }
+    
+    @Configuration
+    @WithModelMapper(basePackage = "com.company.program.mapping")
+    public static class Application {
     }
 }
 ```
