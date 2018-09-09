@@ -24,6 +24,14 @@ In order to add ModelMpaeer to your project simply add this dependency to your c
 ```groovy
 compile 'com.github.rozidan:modelmapper-spring-boot-starter:1.0.0'
 ```
+For snapshots versions add the sonatype public repository:
+```groovy
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/groups/public" }
+    ...
+}
+```
 
 ### Change ModelMapper global configuration
 In order to set change ModelMapper global configuration, simply register within Spring application context instance of  `MapperConfigurer`:
