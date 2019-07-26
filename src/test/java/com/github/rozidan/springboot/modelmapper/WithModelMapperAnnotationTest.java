@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2017 Idan Rozenfeld the original author or authors
+ * Copyright (C) 2019 Idan Roz the original author or authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package com.github.rozidan.springboot.modelmapper;
 import com.github.rozidan.springboot.modelmapper.dtos.UserDto;
 import com.github.rozidan.springboot.modelmapper.entities.User;
 import com.github.rozidan.springboot.modelmapper.mapping.UserDtoMapping;
-import com.github.rozidan.springboot.modelmapper.WithModelMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;

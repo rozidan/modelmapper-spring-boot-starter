@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2017 Idan Rozenfeld the original author or authors
+ * Copyright (C) 2019 Idan Roz the original author or authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +15,16 @@
  */
 package com.github.rozidan.springboot.modelmapper;
 
-import com.github.rozidan.springboot.modelmapper.ConfigurationConfigurer;
-import com.github.rozidan.springboot.modelmapper.ConverterConfigurer;
-import com.github.rozidan.springboot.modelmapper.ModelMapperAutoConfiguration;
-import com.github.rozidan.springboot.modelmapper.TypeMapConfigurer;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.core.annotation.AliasFor;
-
-import java.lang.annotation.*;
 
 /**
  * <p>

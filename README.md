@@ -12,17 +12,17 @@
 Register the ModelMapper to your Spring Boot application and allows to configure it and register object mappings.
 
 ## Setup
-In order to add ModelMpaeer to your project simply add this dependency to your classpath:
+In order to add ModelMapper to your project simply add this dependency to your classpath:
 ```xml
 <dependency>
     <groupId>com.github.rozidan</groupId>
     <artifactId>modelmapper-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>2.3.0</version>
 </dependency>
 ```
 
 ```groovy
-compile 'com.github.rozidan:modelmapper-spring-boot-starter:1.0.0'
+compile 'com.github.rozidan:modelmapper-spring-boot-starter:2.3.0'
 ```
 For snapshots versions add the sonatype public repository:
 ```groovy

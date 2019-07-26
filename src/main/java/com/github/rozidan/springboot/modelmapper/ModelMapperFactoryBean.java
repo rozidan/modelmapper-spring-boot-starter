@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2017 Idan Rozenfeld the original author or authors
+ * Copyright (C) 2019 Idan Roz the original author or authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,10 @@
  */
 package com.github.rozidan.springboot.modelmapper;
 
+import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 /**
  * A factory bean that instantiates the {@link ModelMapper} and configures it by delegating to registered
@@ -51,7 +50,7 @@ public class ModelMapperFactoryBean implements FactoryBean<ModelMapper> {
      * {@inheritDoc}
      */
     @Override
-    public ModelMapper getObject() throws Exception {
+    public ModelMapper getObject() {
         final ModelMapper modelMapper = new ModelMapper();
         configure(modelMapper);
         return modelMapper;
