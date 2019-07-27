@@ -20,12 +20,12 @@ In order to add ModelMapper to your project simply add this dependency to your c
 <dependency>
     <groupId>com.github.rozidan</groupId>
     <artifactId>modelmapper-spring-boot-starter</artifactId>
-    <version>2.3.0</version>
+    <version>2.3.1</version>
 </dependency>
 ```
 
 ```groovy
-compile 'com.github.rozidan:modelmapper-spring-boot-starter:2.3.0'
+compile 'com.github.rozidan:modelmapper-spring-boot-starter:2.3.1'
 ```
 For snapshots versions add the sonatype public repository:
 ```groovy
