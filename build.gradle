@@ -2,7 +2,7 @@ import com.github.spotbugs.SpotBugsTask
 
 plugins {
     id 'org.springframework.boot' version '2.1.5.RELEASE'
-    id 'java'
+    id 'java-library'
     id 'checkstyle'
     id "com.github.spotbugs" version "1.7.1"
     id 'pmd'
@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.modelmapper:modelmapper:2.3.0'
+    api 'org.modelmapper:modelmapper:2.3.0'
     implementation 'org.springframework:spring-beans'
     implementation 'org.springframework:spring-context'
     implementation 'org.springframework.boot:spring-boot-autoconfigure'
